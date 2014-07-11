@@ -41,12 +41,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     .state('frontPage', {
       url: '/',
       templateUrl: 'frontPage/frontPage.html',
-      controller: 'frontPageCtrl'
+      controller: 'FrontPageCtrl'
     })
 
     .state('friends', {
       url: '/friends',
-      templateUrl: 'www/friends/friends.js',
+      templateUrl: 'pages/friends/friends.js',
       controller: 'FriendsCtrl'
     })
 

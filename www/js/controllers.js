@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['starter.frontPage', 'starter.friends'])
+angular.module('starter.controllers', ['starter.frontPage', 'starter.friends', 'starter.game'])
 
 .controller('DashCtrl', function($scope) {
 })
