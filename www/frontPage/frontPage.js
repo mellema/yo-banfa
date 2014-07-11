@@ -1,5 +1,5 @@
 angular.module('starter.frontPage', [])
-.controller('frontPageCtrl', function($scope, $state) {
+.controller('FrontPageCtrl', function($scope, $state) {
   $scope.enter = function() {
     $state.go('tab.account');
   };
