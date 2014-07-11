@@ -9,7 +9,8 @@ var sh = require('shelljs');
 var uglify = require('gulp-uglify');
 
 var paths = {
-  sass: ['./scss/**/*.scss']
+  sass: ['./scss/**/*.scss'],
+  js: ['./www/**/*.js']
 };
 
 gulp.task('default', ['sass']);
@@ -28,16 +29,17 @@ gulp.task('sass', function(done) {
 
 
 gulp.task('minify', function(){
-  return gulp.src(['./www/**/*.js'])
+  return gulp.src(['./www/js/*.js','./www/frontPage/*.js', '!./www/lib/**/*.js'])
     .pipe(concat('all.js'))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('./www/dist'))
     .pipe(rename('all.min.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('./www/dist'));
 });
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.js, ['minify']);
 });
 
 gulp.task('install', ['git-check'], function() {
