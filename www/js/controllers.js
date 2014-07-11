@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['starter.frontPage'])
 
 .controller('DashCtrl', function($scope) {
 })
@@ -12,7 +12,5 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AccountCtrl', function($scope) {
-})
-
-.controller('frontPageCtrl', function($scope) {
 });
+
