@@ -1,10 +1,6 @@
-angular.module('starter.controllers', ['starter.frontPage'])
+angular.module('starter.controllers', ['starter.frontPage', 'starter.friends'])
 
 .controller('DashCtrl', function($scope) {
-})
-
-.controller('FriendsCtrl', function($scope, Friends) {
-  $scope.friends = Friends.all();
 })
 
 .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {

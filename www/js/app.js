@@ -44,15 +44,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       controller: 'frontPageCtrl'
     })
 
-    .state('tab.friends', {
+    .state('friends', {
       url: '/friends',
-      views: {
-        'tab-friends': {
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
-        }
-      }
+      templateUrl: 'www/friends/friends.js',
+      controller: 'FriendsCtrl'
     })
+
     .state('tab.friend-detail', {
       url: '/friend/:friendId',
       views: {
