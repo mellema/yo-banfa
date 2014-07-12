@@ -1,6 +1,6 @@
 angular.module('starter.friends', [])
 .controller('FriendsCtrl', function($scope, $state) {
-  $scope.enter = function() {
+  $scope.toGame = function() {
     $state.go('game');
   };
 });
