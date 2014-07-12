@@ -56,6 +56,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       controller: 'GameCtrl'
     })
 
+    .state('results', {
+      url: '/results',
+      templateUrl: 'pages/results/results.html',
+      controller: 'ResultsCtrl'
+    })
+
     .state('tab.friend-detail', {
       url: '/friend/:friendId',
       views: {
