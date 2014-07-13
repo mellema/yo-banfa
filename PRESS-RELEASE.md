@@ -1,28 +1,16 @@
-# Project Name #
- 
-## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+Heading - Yo Banfa!
 
-## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath e title.
+Subheading - Provides social motivation, reinforcement, and support for students and lifelong learners of Chinese.
 
-## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make is paragraph good.
+Summary - Yo Banfa! is an educational mobile app which leverages the user’s social network to gamify the process of reviewing and learning Chinese Characters.
 
-## Problem ##
-  > Describe the problem your product solves.
+Problem - Current Chinese flashcard apps are asocial and lack motivational features.
+Solution - A fun social environment that engages users and encourages regular study of the Chinese language.
 
-## Solution ##
-  > Describe how your product elegantly solves the problem.
+Co. Quote - The Chinese language learning community is underserved in the mobile/social arena. Yo Banfa! brings students together.
 
-## Quote from You ##
-  > A quote from a spokesperson in your company.
+How to get started - Download the app, log in with Facebook, invite your friends, and start playing!
 
-## How to Get Started ##
-  > Describe how easy it is to get started.
+Customer Quote - "I told all my friends about Yo Banfa! and now we're hooked….  I feel ready to take the HSK next month!" 
 
-## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
-
-## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+Closing and Call to Action - Look for Yo Banfa! in the app store to start your download
