@@ -1,20 +1,9 @@
 Yo! Banfa
 =====================
 
-FUN!
+A beta version of the Yo! banfa app made for the purpose of learning the technologies required
 
-## A
-
-## COOL
-
-## WAY
-
-
-## TO
-
-
-
-#### LEARN CHINESE
+made by: Mike Barton(gitmbar), and Walker Mellema (mellema), and Will Johnson (wcjohnson11)
 
 
 
