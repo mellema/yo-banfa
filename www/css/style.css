@@ -1,1 +1,8 @@
 /* Empty. Add your own CSS if you like */
+.hanzi{
+  font-size: 30px;
+}
+.buttonFont{
+  font-size: 25px;
+  font-weight: bold;
+}

@@ -61,6 +61,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       templateUrl: 'pages/results/results.html',
       controller: 'ResultsCtrl'
     })
+    
+    .state('hanziOptions', {
+      url: '/hanziOptions',
+      templateUrl: 'pages/hanziOptions/hanziOptions.html',
+      controller: 'HanziOptionsCtrl'
+    })
+
+    .state('deckOptions', {
+      url: '/deckOptions',
+      templateUrl: 'pages/deckOptions/deckOptions.html',
+      controller: 'DeckOptionsCtrl'
+    })
 
     .state('tab.friend-detail', {
       url: '/friend/:friendId',
