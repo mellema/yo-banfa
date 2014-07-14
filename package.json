@@ -12,6 +12,7 @@
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^0.7.1",
     "gulp-uglify": "^0.3.1",
+    "gulp-util": "^2.2.20",
     "jwt-simple": "^0.2.0",
     "mongoose": "^3.8.12",
     "morgan": "^1.1.1",
