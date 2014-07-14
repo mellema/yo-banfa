@@ -1,10 +1,28 @@
 <ion-view title="Hanzi Options">
   <ion-nav-buttons side="right">
     <button class="button button-icon icon ion-navicon" ng-click="doSomething()">
+      <ion-list>
+      </ion-list>
     </button>
   </ion-nav-buttons>
   <ion-content>
-  <div class="row" style="margin-top: 100px">
+    <div class="item item-text-wrap dropdown">
+      Drop Down Item 1
+    </div>    
+    <div class="item item-text-wrap dropdown">
+      Drop Down Item 1
+    </div>    
+    <div class="item item-text-wrap dropdown">
+      Drop Down Item 1
+    </div>    
+    <div class="item item-text-wrap dropdown">
+      Drop Down Item 1
+    </div>    
+    <div class="item item-text-wrap dropdown">
+      Drop Down Item 1
+    </div>
+    <div style="margin-top: 100px; z-index: -1!important">
+  <div class="row">
     <button ui-sref="deckOptions" class="button button-full button-royal col">
       <span class="hanzi">繁</span><span class="hanzi">體</span>
       <span class='buttonFont'>Traditional</span>
@@ -26,6 +44,7 @@
     <button ui-sref="deckOptions" class="button button-full button-calm col">
       <span class="hanzi">有</span><span class="hanzi">辦</span><span  class="hanzi">法</span><span class='buttonFont'>Yo Banfa</span>
     </button>
+  </div>
   </div>
   </ion-content>
 </ion-view>
