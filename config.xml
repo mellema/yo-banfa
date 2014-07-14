@@ -7,8 +7,8 @@
     <author email="williamcouperjohnson@gmail.com" href="http://ionicframework.com/">
       Yo! Banfa team
     </author>
-    <content src="/www/index.html" />
-    <access origin="*" />
+    <content src="index.html" />
+    <access origin="http://yo-banfa.azurewebsites.net/" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
