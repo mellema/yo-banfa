@@ -15,12 +15,6 @@ require("./config/middleware.js")(app, express);
 //export the app for testing and flexibility
 module.exports = app;
 
-//Set up our port
-var port = process.env.PORT || 9000;
-
-//Listen on port and log status
-app.listen(port);
-console.log("Express server listening at localhost:" + port);
 
 
 
