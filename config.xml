@@ -7,7 +7,7 @@
     <author email="williamcouperjohnson@gmail.com" href="http://ionicframework.com/">
       Yo! Banfa team
     </author>
-    <content src="index.html" />
+    <content src="/www/index.html" />
     <access origin="http://yo-banfa.azurewebsites.net/" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
