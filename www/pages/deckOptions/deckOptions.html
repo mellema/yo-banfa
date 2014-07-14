@@ -1,12 +1,25 @@
-<ion-view title="deckOptions">
+<ion-view title="Deck Options">
   <ion-content>
-  <div class="row">
-    <h1>HELLO DECK WORLD</h1>
-    <ion-list>
-      <ion-item ng-repeat="deck in decks" type="item-text-wrap" href="#/tab/deck/{{deck.id}}">
-        {{deck.name}}
-      </ion-item>
-    </ion-list>
-  </div>
+        <!-- rewrite with ng-repeat -->
+    <div class="row" style="margin-top: 100px">
+      <button class="button button-full button-royal col" ui-sref="game">
+        HSK1
+      </button>    
+    </div>  
+    <div class="row">   
+      <button class="button button-full button-positive col" ui-sref="game">
+        HSK2
+      </button>    
+    </div>  
+    <div class="row">   
+      <button class="button button-full button-calm col" ui-sref="game">
+        HSK3
+      </button>
+    </div>    
+    <div class="row">   
+      <button class="button button-full button-balanced col" ui-sref="game">
+        My Custom HSK3
+      </button>
+    </div>
   </ion-content>
 </ion-view>
