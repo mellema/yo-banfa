@@ -1,3 +1,4 @@
+<!--
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.ionicframework.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>YO! Banfa</name>
@@ -15,11 +16,32 @@
 
     <!-- Don't store local date in an iCloud backup. Turn this to "cloud" to enable storage
          to be sent to iCloud. Note: enabling this could result in Apple rejecting your app.
-   -->
- 
+
+
     <preference name="BackupWebStorage" value="none" />
 
     <feature name="StatusBar">
       <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>
 </widget>
+-->
+
+<?xml version="1.0"?>
+<configuration>
+  <system.web>
+    <compilation batch="false" />
+  </system.web>
+  <system.webServer>
+    <handlers>
+      <add name="iisnode" path="server.js" verb="*" modules="iisnode" />
+    </handlers>
+    <rewrite>
+      <rules>
+        <rule name="myapp">
+          <match url="/*" />
+          <action type="Rewrite" url="server.js" />
+        </rule>
+      </rules>
+    </rewrite>
+  </system.webServer>
+</configuration>
