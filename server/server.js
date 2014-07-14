@@ -1,43 +1,32 @@
-// Require the necessary packages and 
-// initiliaze express
-// ================================
+// The main application script, ties everything together.
 
 var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var app = module.exports = express.createServer();
+var api = require('./controllers/api.js');
 
-// Configure the app to use bodyParse()
-// this lets us get data from a POST
+// connect to Mongo when the app initializes
+mongoose.connect('mongodb://localhost/norum');
 
-app.use(bodyParser.urlencoded({
-	extended: true
-}));
-app.use(bodyParser.json());
-
-// set up the port
-
-var port = process.env.PORT || 9000;
-
-//   ROUTES FOR THE API
-// ====================================
-// get an instance of the express router
-var router = express.Router();
-
-//home route
-
-router.get('/', function(req, res) {
-	res.json({ message: 'hooray for Servers!'});
+//Configure our express server instance
+app.configure(function(){
+  app.use(express.bodyParser());
+  app.use(express.methodOverride());
+  app.use(app.router);
 });
 
-//other API routes here
+//Set up our port
+var port = process.env.PORT || 9000;
 
-//REGISTER THE ROUTES
-// =================================
-// all routes are prefixed with /api
+// set up the RESTful API, handler methods are defined in api.js
+app.post('/thread', api.post);
+app.get('/thread/:title.:format?', api.show);
+app.get('/thread', api.list);
 
-app.use('/api', router);
 
-//START THE SERVER
-// ==================================
+//Listen on port and log status
 app.listen(port);
-console.log('Now listening at port ' + port);
+console.log("Express server listening on port %d", app.address().port);
+
+
+
