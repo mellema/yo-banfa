@@ -33,8 +33,8 @@ module.exports = {
   getFriends: function(req, res) {
     User.find({username: req.params.username}, function (err, user) {
       if(err) { return handleError(res, err); }
-      if(!card) { return res.send(404); }
-        return res.json(user.friends);
+      if(!user) { return res.send(404); }
+        res.json(user[0].friends);
     });
   }
 };

@@ -21,8 +21,8 @@
       </div>
     </a>
 
-    ...
+  <input ng-model='searchFilter.title' type='input'>
+    <li class='link' ng-repeat='friend in data.friends | filter:searchFilter'> friend: {{friend}}<div></div></li>
 
-</div>
   </ion-content>
 </ion-view>
