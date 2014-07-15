@@ -10,6 +10,7 @@ module.exports = function (app, express) {
   // var userRouter = express.Router();
   // var linkRouter = express.Router();
   var router = express.Router();
+  var userRouter = express.Router();
 
   app.use(morgan('dev'));
   app.use(bodyParser.urlencoded({extended: true}));
@@ -19,8 +20,8 @@ module.exports = function (app, express) {
   // Insert routes for various API's
   app.use('/api/card', require('./../api/card'));
 
-
-  // app.use('/api/users', userRouter); // user user router for all user request
+  //requests for user info should come from the angular services/factories prefixed with /api/users
+  app.use('/api/users', userRouter);
 
   // authentication middleware used to decode token and made available on the request
   //app.use('/api/links', helpers.decode);
@@ -29,6 +30,6 @@ module.exports = function (app, express) {
   app.use(helpers.errorHandler);
 
   // inject our routers into their perspective route files
-  // require('../users/userRoutes.js')(userRouter);
+  require('../users/userRoutes.js')(userRouter);
   // require('../links/linkRoutes.js')(linkRouter);
 };
