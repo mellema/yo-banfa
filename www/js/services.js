@@ -3,7 +3,7 @@ angular.module('starter.services', [])
 /**
  * A simple example service that returns some data.
  */
-.factory('Friends', function() {
+.factory('Friends', function($http) {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
@@ -14,6 +14,14 @@ angular.module('starter.services', [])
     { id: 3, name: 'Ash Ketchum' }
   ];
 
+  var getFriends = function(){ //formerly known as getHotLinks
+    //returns results of ajax get request to api/links
+    return $http({
+      method: 'GET',
+      url: '/api/users/friendslist'
+    });
+  };
+
   return {
     all: function() {
       return friends;
@@ -21,7 +29,8 @@ angular.module('starter.services', [])
     get: function(friendId) {
       // Simple index lookup
       return friends[friendId];
-    }
+    },
+    getFriends: getFriends
   }
 })
 
@@ -45,4 +54,9 @@ angular.module('starter.services', [])
     //   return deck[deckId];
     // }
   }
-});
+})
+
+.factory('Links', function ($http) {
+  //create getLinks variable
+
+})
