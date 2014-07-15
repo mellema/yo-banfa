@@ -34,7 +34,7 @@ module.exports = {
     User.find({username: req.params.username}, function (err, user) {
       if(err) { return handleError(res, err); }
       if(!user) { return res.send(404); }
-        return res.json(user.friends);
+        res.json(user[0].friends);
     });
   }
 };

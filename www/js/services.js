@@ -18,7 +18,7 @@ angular.module('starter.services', [])
     //returns results of ajax get request to api/links
     return $http({
       method: 'GET',
-      url: '/api/' + user + '/friendslist'
+      url: '/api/users/' + user + '/friendslist'
     });
   };
 
