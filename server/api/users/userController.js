@@ -3,6 +3,7 @@ var User = require('./userModel.js'),
     jwt  = require('jwt-simple');
 
 module.exports = {
+  //search database for user
   signin: function (req, res, next) {
     var username = req.body.username;
 
@@ -20,9 +21,20 @@ module.exports = {
       });
   },
 
+  //add user to database
   signup: function (req, res, next) {
   },
 
+  //check whether user is authorized
   checkAuth: function (req, res, next) {
+  },
+
+  //get list of all user's friends
+  getFriends: function(req, res) {
+    User.find({username: req.params.username}, function (err, user) {
+      if(err) { return handleError(res, err); }
+      if(!card) { return res.send(404); }
+        return res.json(user.friends);
+    });
   }
 };
