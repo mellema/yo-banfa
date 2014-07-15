@@ -22,4 +22,4 @@ UserSchema.methods.authorize = function (candidatePassword) {
   return checkOAuth;
 };
 
-module.exports = mongoose.model('users', UserSchema);
+module.exports = mongoose.model('User', UserSchema);
