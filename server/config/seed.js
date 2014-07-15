@@ -1,5 +1,5 @@
 
-//Require the 
+//Require the model's schema
 var Card = require('../api/card/card.model');
 
 Card.find({}).remove(function() {
