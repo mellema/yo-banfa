@@ -39,11 +39,11 @@ UserSchema.methods.authorize = function (candidatePassword) {
   return checkOAuth;
 };
 
-var testUser = mongoose.model('User', UserSchema);
+/*var testUser = mongoose.model('User', UserSchema);
 var johnDoe = new testUser ({
   username: 'johnDoe',
   friends: ['happy', 'sleepy', 'dopey']
 });
-johnDoe.save(function(err){if(err)console.log('err on johnDoe test')})
+johnDoe.save(function(err){if(err)console.log('err on johnDoe test')})*/
 
 module.exports = mongoose.model('User', UserSchema);
