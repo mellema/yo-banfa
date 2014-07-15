@@ -30,6 +30,6 @@ module.exports = function (app, express) {
   app.use(helpers.errorHandler);
 
   // inject our routers into their perspective route files
-  require('../users/userRoutes.js')(userRouter);
+  require('../api/users/userRoutes.js')(userRouter);
   // require('../links/linkRoutes.js')(linkRouter);
 };
