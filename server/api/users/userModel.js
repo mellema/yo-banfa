@@ -11,7 +11,10 @@ var UserSchema = new mongoose.Schema({
     unique: true
   },
 
-  friends: ["bob", "tom"]
+  friends: {
+    type: Array,
+    default: []
+  }
 });
 
 UserSchema.methods.authorize = function (candidatePassword) {
