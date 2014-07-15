@@ -1,6 +1,8 @@
 var morgan      = require('morgan'), // used for logging incoming request
     bodyParser  = require('body-parser'),
-    helpers     = require('./helpers.js'); // our custom middleware
+    methodOverrride = require('method-override'),
+    helpers     = require('./helpers.js'), // our custom middleware
+    app = require('../server.js');
 
 
 module.exports = function (app, express) {
@@ -14,7 +16,8 @@ module.exports = function (app, express) {
   app.use(bodyParser.json());
   app.use(express.static(__dirname + '/../../www'));
 
-  // router.get('/', f)
+  // Insert routes for various API's
+  app.use('/api/card', require('./../api/card'));
 
 
   // app.use('/api/users', userRouter); // user user router for all user request
