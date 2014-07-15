@@ -14,11 +14,11 @@ angular.module('starter.services', [])
     { id: 3, name: 'Ash Ketchum' }
   ];
 
-  var getFriends = function(){ //formerly known as getHotLinks
+  var getFriends = function(user){ 
     //returns results of ajax get request to api/links
     return $http({
       method: 'GET',
-      url: '/api/users/friendslist'
+      url: '/api/' + user + '/friendslist'
     });
   };
 
