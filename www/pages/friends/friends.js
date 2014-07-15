@@ -4,6 +4,6 @@ angular.module('starter.friends', [])
 .controller('FriendsCtrl', function($scope, $state) {
   $scope.toGame = function() {
   	//Link to game page
-    $state.go('game');
+    $state.go('hanziOptions');
   };
 });
