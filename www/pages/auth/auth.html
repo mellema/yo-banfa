@@ -1,0 +1,19 @@
+<div ng-controller="AuthenticationCtrl">
+
+  <div ng-show="Authenticated">
+    <ion-nav-view></ion-nav-view>
+  </div>
+
+  <div ng-show="needsAuthentication">
+    <div ng-controller="LoginCtrl">
+      <ion-content scroll="false" class="padding dashboard" id="login">
+
+        <div class="login-text">
+          <h1>YOBANFA</h1>
+          <p>hi</p>
+        </div>
+        <button class="loginbutton" ng-click="facebooklogin()"></button>
+      </ion-content>
+    </div>
+  </div>
+</div>

@@ -37,12 +37,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     })
 
     // Each tab has its own nav history stack:
+    .state('auth', {
+      url: '/',
+      templateUrl: 'pages/auth/auth.html',
+      controller: 'AuthenticationCtrl'
+    })
 
     .state('frontPage', {
-      url: '/',
+      url: '/frontPage',
       templateUrl: 'frontPage/frontPage.html',
       controller: 'FrontPageCtrl'
     })
+
 
     .state('friends', {
       url: '/friends',
@@ -61,7 +67,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       templateUrl: 'pages/results/results.html',
       controller: 'ResultsCtrl'
     })
-    
+
     .state('hanziOptions', {
       url: '/hanziOptions',
       templateUrl: 'pages/hanziOptions/hanziOptions.html',

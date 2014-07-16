@@ -1,4 +1,4 @@
-angular.module('starter.services', [])
+angular.module('starter.services', ['LocalStorageModule'])
 
 /**
  * A simple example service that returns some data.
@@ -33,7 +33,7 @@ angular.module('starter.services', [])
     { id: 3, name: 'Ash Ketchum' }
   ];
 
-  var getFriends = function(user){ 
+  var getFriends = function(user){
     //returns results of ajax get request to api/links
     return $http({
       method: 'GET',
@@ -75,7 +75,26 @@ angular.module('starter.services', [])
   }
 })
 
-.factory('Links', function ($http) {
-  //create getLinks variable
+.factory('FacebookLoginService', function($window, localStorageService){
+  var url = 'localhost:9000/auth';
+  var loginWindow, token, hasToken, userId, hasUserId;
 
-})
+  return {
+    login: function() {
+      loginWindow = $window.open(url, '_blank', 'location=no,toolbar=no,hidden=yes');
+      loginWindow.addEventListener('loadstart', function(event){
+        hasToken = event.url.indexOf('?oauth_token=');
+        hasUserId = event.url.indexOf('&userId=');
+        if(hasToken > -1 && hasUserId > -1){
+          token = event.url.match('oauth_token=(.*)&userId')[1];
+          userId = event.url.match('&userId=(.*)')[1];
+          localStorageService.set('facebook-token', token);
+          localStorageService.set('token-date', JSON.stringify(new Date()));
+          localStorageService.set('userId', userId);
+          loginWindow.close();
+          location.href=location.pathname;
+        }
+      });
+    },
+  };
+});
