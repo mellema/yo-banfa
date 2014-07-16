@@ -31,10 +31,10 @@ module.exports = {
 
   //get list of all user's friends
   getFriends: function(req, res) {
-    User.find({username: req.params.username}, function (err, user) {
+    User.findOne({username: req.params.username}, function (err, user) {
       if(err) { return handleError(res, err); }
       if(!user) { return res.send(404); }
-        res.json(user[0].friends);
+        res.json(user.friends);
     });
   }
 };
