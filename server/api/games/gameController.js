@@ -4,10 +4,19 @@ var Game = require('./gameModel.js'),
 
 module.exports = {
   //add Game to database
-  create: function (req, res, next) {
+  create: function (req, res) {
   },
 
   //get game from database
-  show: function (req, res, next) {
+  show: function (req, res) {
+  },
+
+  //update when the first user completes the game
+  update: function (req, res){
+  },
+
+  //destroy when both users complete the game
+  destroy: function(req, res){
+
   }
 };

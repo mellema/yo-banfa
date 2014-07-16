@@ -1,10 +1,11 @@
-var userController = require('./userController.js');
+var gameController = require('./gameController.js');
 
 
 module.exports = function (app) {
-  // app === userRouter injected from middlware.js
+  // app === gameRouter injected from middlware.js
 
-  //app.post('/signin', userController.signin);
-  //app.get('/:username/friendslist', userController.getFriends);
-  //app.get('/settings', userController.settings);
+  //app.get('/getgame', gameController.show)
+  //app.post('/creategame', gameController.create);
+  //app.put('/completegame', gameController.update);
+  //app.delete('/removegame', gameController.destroy);
 };
