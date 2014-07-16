@@ -3,6 +3,25 @@ angular.module('starter.services', [])
 /**
  * A simple example service that returns some data.
  */
+ .factory('MenuService', function() {
+
+  // var menuItems = [
+  //   { text: 'Grid', iconClass: 'icon ion-map', link: 'grid'},
+  //   { text: 'Chats', iconClass: 'icon ion-map', link: 'chats'},
+  //   { text: 'Chat', iconClass: 'icon ion-map', link: 'chat'},
+  //   { text: '1 Page One', iconClass: 'icon ion-map', link: 'one'},
+  //   { text: '2 Page Two', iconClass: 'icon ion-gear-b', link: 'two'},
+  //   { text: '3 Page Three', iconClass: 'icon ion-star', link: 'three'}
+  // ];
+  var menuItems = [{text: 'Friends'}, {text: 'Enemies'}, {text: 'Losers'}];
+
+
+  return {
+    all: function() {
+      return menuItems;
+    }
+  }
+})
 .factory('Friends', function($http) {
   // Might use a resource here that returns a JSON array
 
