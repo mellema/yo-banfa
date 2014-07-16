@@ -14,7 +14,18 @@ var GameSchema = new Schema({
   },
 
   deck: {
-  	type: Array
+  	type: Array,
+  	default: []
+  },
+
+  creatorScore: {
+  	type: Number,
+  	default: 0
+  },
+
+  challengedScore: {
+  	type: Number,
+  	default: 0
   }
 });
 
