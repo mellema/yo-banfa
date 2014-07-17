@@ -33,6 +33,7 @@ angular.module('starter.services', [])
     { id: 3, name: 'Ash Ketchum' }
   ];
 
+  //return entire list of friends
   var getFriends = function(user){ 
     //returns results of ajax get request to api/links
     return $http({
@@ -41,24 +42,60 @@ angular.module('starter.services', [])
     });
   };
 
+  //return all games which the user did not create
+  var getChallenges = function(user){ 
+    return $http({
+      method: 'GET',
+      url: '/api/users/' + user + '/challenges'
+    });
+  };
+
+  //functions injected when Friends is injected
   return {
+    //test function
     all: function() {
       return friends;
     },
-    get: function(friendId) {
-      // Simple index lookup
-      return friends[friendId];
-    },
-    getFriends: getFriends
+
+    //actual functions
+    getFriends: getFriends,
+    getChallenges: getChallenges
   }
 })
 
 .factory('Game', function(){
-  var makeGame = function(user){
+  //make a new game
+  var makeGame = function(creator, data){
     return $http({
       method: 'POST',
-      url: '/api/game'
+      data: data,
+      url: '/api/game/' + creator + '/creategame'
     })
+  };
+
+  //retrieve the cards for a game (for challenged player)
+  var getGame = function(game){
+    return $http({
+      method: 'GET',
+      url: '/api/game/' + game + '/getgame'
+    })
+  };
+
+  //update game should return the scores.  It should also destroy 
+  //or mark the game as complete on the server side
+  var update = function(game, data){
+    return $http({
+      method: 'PUT',
+      data: data,
+      url: '/api/game/' + game + '/completegame'
+    })
+  };
+
+  //functions injected when Game is injected
+  return {
+    makeGame: makeGame,
+    getGame: getGame,
+    update: update
   }
 })
 

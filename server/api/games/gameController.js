@@ -31,7 +31,7 @@ module.exports = {
   getScores: function (req, res){
     //if both scores are >= 0
     //  call destroy function in callback
-    //  alternatively, keep games forever.
+    //  alternatively, keep games forever and mark as complete
   },
 
   //destroy when both users complete the game (should do a request at end of game for both scores)
