@@ -29,7 +29,7 @@ var UserSchema = new mongoose.Schema({
   },
 
   //currentGames should connect to Game schema
-  currentGames: [{ type: Schema.Types.ObjectId, ref: 'Game'}]
+  // currentGames: [{ type: Schema.Types.ObjectId, ref: 'Game'}]
 
   //future customization
   //preferredHanzi: String
