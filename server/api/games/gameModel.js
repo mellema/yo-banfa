@@ -4,12 +4,12 @@ var mongoose = require('mongoose'),
 
 var GameSchema = new Schema({
   creator: {
-  	type: Schema.ObjectId,
+  	type: Schema.Types.ObjectId,
   	ref: 'User'
   },
 
   challenged: {
-  	type: Schema.ObjectId,
+  	type: Schema.Types.ObjectId,
   	ref: 'User'
   },
 
@@ -20,13 +20,14 @@ var GameSchema = new Schema({
 
   creatorScore: {
   	type: Number,
-  	default: 0
+  	default: -1
   },
 
   challengedScore: {
   	type: Number,
-  	default: 0
+  	default: -1
   }
 });
+
 
 module.exports = mongoose.model('Game', GameSchema);

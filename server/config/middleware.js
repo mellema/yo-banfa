@@ -11,6 +11,7 @@ module.exports = function (app, express) {
   // var linkRouter = express.Router();
   var router = express.Router();
   var userRouter = express.Router();
+  var gameRouter = express.Router();
 
   app.use(morgan('dev'));
   app.use(bodyParser.urlencoded({extended: true}));
@@ -20,16 +21,17 @@ module.exports = function (app, express) {
   // Insert routes for various API's
   app.use('/api/card', require('./../api/card'));
 
-  //requests for user info should come from the angular services/factories prefixed with /api/users
+  //requests for user data should come from the angular services/factories prefixed with /api/users
   app.use('/api/users', userRouter);
 
+  //requests for game data should come from the angular services/factories prefixed with /api/users
+  app.use('/api/games', gameRouter);
+
   // authentication middleware used to decode token and made available on the request
-  //app.use('/api/links', helpers.decode);
-  // app.use('/', linkRouter); // user link router for link request
   app.use(helpers.errorLogger);
   app.use(helpers.errorHandler);
 
   // inject our routers into their perspective route files
   require('../api/users/userRoutes.js')(userRouter);
-  // require('../links/linkRoutes.js')(linkRouter);
+  require('../api/games/gameRoutes.js')(gameRouter);
 };
