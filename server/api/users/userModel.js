@@ -1,5 +1,5 @@
 var mongoose = require('mongoose'),
-    Game = require('../games/gameModel.js')
+    Game = require('../games/gameModel'),
     //bcrypt   = require('bcrypt'),
     Q        = require('q'),
     SALT_WORK_FACTOR  = 10;
