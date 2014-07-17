@@ -53,6 +53,15 @@ angular.module('starter.services', [])
   }
 })
 
+.factor('Game', function(){
+  var makeGame = function(user){
+    return $http({
+      method: 'POST',
+      url: '/api/game'
+    })
+  }
+})
+
 .factory('DeckOptions', function() {
   // Might use a resource here that returns a JSON array
 

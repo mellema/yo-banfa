@@ -3,26 +3,16 @@ var User = require('./userModel'),
     jwt  = require('jwt-simple');
 
 module.exports = {
-  //search database for user
-  signin: function (req, res, next) {
-    var username = req.body.username;
-
-    var findUser = Q.nbind(User.findOne, User);
-    findUser({username: username})
-      .then(function (user) {
-        if (!user) {
-          next(new Error('User does not exist'));
-        } else {
-          return user.authorize(password);
-        }
-      })
-      .fail(function (error) {
-        next(error);
-      });
-  },
-
   //add user to database
   signup: function (req, res, next) {
+    //if user not in database,
+    // add user and friends
+  },
+
+  //search database for user
+  signin: function (req, res, next) {
+    //if user in database,
+    // update friends list
   },
 
   //check whether user is authorized
@@ -36,5 +26,10 @@ module.exports = {
       if(!user) { return res.send(404); }
         res.json(user.friends);
     });
+  },
+
+  getChallenges: function(req, res) {
+    //after signin, 
+    //  check challenges
   }
 };

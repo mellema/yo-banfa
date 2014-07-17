@@ -1,16 +1,24 @@
 var mongoose = require('mongoose'),
+<<<<<<< HEAD
     Game = require('../games/gameModel'),
     //bcrypt   = require('bcrypt'),
     Q        = require('q'),
     SALT_WORK_FACTOR  = 10;
 
+=======
+    Game = require('../games/gameModel.js')
+>>>>>>> Complete outline for games/users controllers, models, and routes
 
 var UserSchema = new mongoose.Schema({
+  facebookId: {
+    type: String,
+    require: true,
+    unique: true
+  },
+
   username: {
     type: String,
     trim: true,
-    required: true,
-    unique: true
   },
 
   friends: {
@@ -29,7 +37,11 @@ var UserSchema = new mongoose.Schema({
   },
 
   //currentGames should connect to Game schema
+<<<<<<< HEAD
   // currentGames: [{ type: Schema.Types.ObjectId, ref: 'Game'}]
+=======
+  currentGames: [{ type: Schema.Types.ObjectId, ref: 'Game', creator: Boolean}]
+>>>>>>> Complete outline for games/users controllers, models, and routes
 
   //future customization
   //preferredHanzi: String
