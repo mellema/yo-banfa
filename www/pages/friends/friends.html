@@ -15,10 +15,10 @@
 -->
   <ion-list>
 
-    <ion-item>
+    <ion-item ng-repeat='friend in data.friends'>
       <img src="ghj">
-      <h2>Venkman</h2>
-      <p clas>Back off, man. I'm a scientist.</p>
+      <h2>{{friend}}</h2>
+      <p clas>Back off, man. I'm {{friend}}.</p>
       <div class="row">
       	<div class="col col-80"></div>
      	<div class="col col-20"><button class="button button-block button-dark" ng-click="toGame()">Start game</button></div>
