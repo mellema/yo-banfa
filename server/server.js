@@ -2,6 +2,7 @@
 
 var express = require('express');
 var mongoose = require('mongoose');
+var mongo = require('mongodb');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 
@@ -19,7 +20,19 @@ passport.use(new FacebookStrategy({
     });
   }
 ));
-//Security risk with body parser?
+
+//Mongo Configs
+var mongoUri = process.env.MONGOLAB_URI ||
+               process.env.MONGOHQ_URL ||
+               'mongodb://localhost/mydb';
+
+mongo.Db.connect(mongoUri, function (err, db) {
+	db.collection('mydocs', function(er, collection) {
+		collection.insert({'mykey': 'myvalue'}, {safe: true}, function (er,rs) {
+        });
+	});
+});
+
 
 // connect to Mongo when the app initializes
 mongoose.connect("mongodb://localhost/api");
