@@ -5,9 +5,10 @@ var mongoose = require('mongoose'),
 var CardSchema = new Schema({
   simpleHanzi: String,
   tradHanzi: String,
+  card_ID: Number,
   pinyin: String,
-  translation: String,
-  info: String,
+  english: String,
+  groupName: String,
   active: Boolean
 });
 
