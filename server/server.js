@@ -6,8 +6,8 @@ var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 
 var app = express();
-// var app.use(passport.initialize());
-/*passport.use(new FacebookStrategy({
+app.use(passport.initialize());
+passport.use(new FacebookStrategy({
     clientID: 648798351882921,
     clientSecret: "fd19734e0be95df8f41499bbe345406e",
     callbackURL: "http://www.example.com/auth/facebook/callback"
@@ -18,7 +18,7 @@ var app = express();
       done(null, user);
     });
   }
-));*/
+));
 //Security risk with body parser?
 
 // connect to Mongo when the app initializes
