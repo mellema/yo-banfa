@@ -4,16 +4,29 @@ var Game = require('./gameModel.js'),
 module.exports = {
   //add Game to database.  Shuffle deck
   create: function (req, res) {
+/*    var newDeck = []
+    var allCards;
+    Card.find(function (err, cards) {
+      if(err) { return handleError(res, err); }
+      allCards = cards;
+    });
+
+    while (newDeck.length < 10 && allCards.length > 0){
+      rng = Math.random() * allCards.length;
+      newDeck.push(allCards[rng])
+      allCard.splice(rng, 0);
+    }
+
     var newGame = {
-      creator: "53c5b12f1c89a4e0191609a7",
-      challenged: "53c5b12f1c89a4e0191609a7",
-      deck: [],
+      creator: req.creator,
+      challenged: req.challenged,
+      deck: newDeck
     }
     Game.create(newGame, function(err, game){
       if (err){ return handleError(res, err); }
       //game should be returned to user after creation
-      return res.json(201, game);
-    });
+      return res.json(201, game.deck);
+    });*/
   },
 
   //get game from database
