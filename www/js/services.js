@@ -53,7 +53,7 @@ angular.module('starter.services', [])
   }
 })
 
-.factor('Game', function(){
+.factory('Game', function(){
   var makeGame = function(user){
     return $http({
       method: 'POST',
