@@ -26,6 +26,11 @@ var GameSchema = new Schema({
   challengedScore: {
   	type: Number,
   	default: -1
+  },
+
+  complete: {
+    type: Boolean,
+    default: false
   }
 });
 

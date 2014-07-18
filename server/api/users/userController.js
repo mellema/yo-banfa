@@ -22,7 +22,7 @@ module.exports = {
   //get list of all user's friends
   getFriends: function(req, res) {
     User.findOne({username: req.params.username}, function (err, user) {
-      if(err) { return handleError(res, err); }
+      if(err) { console.log(err); }
       if(!user) { return res.send(404); }
         res.json(user.friends);
     });
