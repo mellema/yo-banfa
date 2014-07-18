@@ -10,3 +10,27 @@
   text-align: right;
   z-index: +1;
 }
+.yologo {
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 50px;
+  background-color: lightblue;
+  position: relative;
+  top: 100px;
+}
+.fblogin {
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  position: relative;
+  top: 150px;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 200px;
+  position: relative;
+  top: 10px;
+}
