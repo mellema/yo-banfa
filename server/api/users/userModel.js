@@ -9,11 +9,6 @@ var UserSchema = new mongoose.Schema({
     unique: true
   },
 
-  username: {
-    type: String,
-    trim: true,
-  },
-
   friends: {
     type: Array,
     default: []
