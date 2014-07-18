@@ -5,9 +5,12 @@ var User = require('./userModel'),
 module.exports = {
   //add user to database
   signup: function (req, res, next) {
-    //if user not in database,
-    // add user and friends
+    User.create({facebookId: req.body.username, friends: req.body.friends}, function(err, user) {
+      if(err) { console.log(err) }
+      res.json(201, user);
+    });
   },
+
 
   //search database for user
   signin: function (req, res, next) {

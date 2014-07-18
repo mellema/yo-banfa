@@ -1,3 +1,5 @@
+frontPage.html
+
 <ion-view title="frontPage" hide-nav-bar="true">
   <ion-content>
     <div class="hanzi yologo">
@@ -5,9 +7,23 @@
       <span>有</span><span>辦</span><span>法</span>
       </div>
     </div>
-  	<div class="row yologo">
-  		<h1 class="col col-100">YO!BANFA</h1>
-  	</div>
+    <div class="row yologo">
+      <h1 class="col col-100">YO!BANFA</h1>
+    </div>
+
+    <!-- while oauth doesnt work -->
+    <div id='signin'>
+      <h1>signin</h1>
+      <form name="signinForm" ng-submit='signin(signinForm.$valid)' novalidate>
+        <input type='text' name='userInput' ng-model='user.username' ng-minlength='3' ng-maxlength='20' required>
+        <input type="text" ng-model='user.friends' required>
+        <p ng-show='signinForm.$invalid'>Username and Password must be valid</p>
+        <p ng-if='signinForm.userInput.$error=true'>User</p>
+        <button ng-disabled='signinForm.$invalid'>signin</button>
+      </form>
+    </div>
+
+    <!-- oauth -->
     <div class="fblogin">
       <fb:login-button scope="public_profile,email,user_friends" data-auto-logout-link="true" onlogin="checkLoginState();">
       </fb:login-button>
