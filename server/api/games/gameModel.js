@@ -4,12 +4,14 @@ var mongoose = require('mongoose'),
 
 var GameSchema = new Schema({
   creator: {
-  	type: Schema.Types.ObjectId,
+  	//type: Schema.Types.ObjectId,
+    type: String,
   	ref: 'User'
   },
 
   challenged: {
-  	type: Schema.Types.ObjectId,
+  	//type: Schema.Types.ObjectId,
+    type: String,
   	ref: 'User'
   },
 

@@ -1,5 +1,6 @@
 var Game = require('./gameModel.js'),
-    User = require('../users/userModel.js')
+    User = require('../users/userModel.js'),
+    Card = require('../card/card.model.js')
 
 module.exports = {
   //add Game to database.  Shuffle deck
@@ -11,20 +12,20 @@ module.exports = {
       allCards = cards;
       //generate deck of length 10
       while (newDeck.length < 10 && allCards.length > 0){
-        rng = Math.random() * allCards.length;
+        var rng = Math.round(Math.random() * allCards.length);
         newDeck.push(allCards[rng])
-        allCards.splice(rng, 0);
+        allCards.splice(rng, 1);
       }
 
       var newGame = {
-        creator: req.creator,
-        challenged: req.challenged,
+        creator: "req.creator",
+        challenged: "req.challenged",
         deck: newDeck
       }
       Game.create(newGame, function(err, game){
         if (err){ console.log(err); }
         //deck should be returned to user after creation
-        return res.json(201, game.deck);
+        return res.json(201, game);
       });
     });
 
@@ -33,10 +34,10 @@ module.exports = {
   //get game from database
   load: function (req, res) {
     //load a game after a user accepts a challenge
-    Game.findOne({_id: req.params.game}, function (err, user) {
+    Game.findOne({_id: req.params.game}, function (err, game) {
       if (err){ console.log(err); }
-      if (!user){ return res.send(404); }
-      res.json(game.deck);
+      if (!game){ return res.send(404); }
+      res.json(game);
     });
   },
 
