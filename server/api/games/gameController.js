@@ -33,7 +33,7 @@ module.exports = {
   //get game from database
   load: function (req, res) {
     //load a game after a user accepts a challenge
-    Game.findOne({challenged: req.challenged}, function (err, user) {
+    Game.findOne({_id: req.params.game}, function (err, user) {
       if (err){ console.log(err); }
       if (!user){ return res.send(404); }
       res.json(game.deck);
@@ -44,7 +44,7 @@ module.exports = {
   update: function (req, res){
     //update user's score
     //callback should get scores for both players
-    var conditions = {id: req.params.game};
+    var conditions = {_id: req.params.game};
     var scoreToUpdate = req.creator === true ? creatorScore : challengedScore;
     var update = {};
     update[scoreToUpdate] = req.score
