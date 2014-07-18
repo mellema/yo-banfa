@@ -4,7 +4,7 @@ var fs = require('fs');
 // Create a connection instance at db localhost and table mydb
 mongoose.createConnection('localhost', 'mydb');
 
-/*// Load the csv file into lineList and split by line
+// Load the csv file into lineList and split by line
 var lineList = fs.readFileSync('server/api/card/hskLevel1.csv').toString().split('\n');
 // Remove the headers
 lineList.shift();
@@ -65,4 +65,3 @@ function createDocRecurse (err) {
 
 createDocRecurse(null);
 
-*/

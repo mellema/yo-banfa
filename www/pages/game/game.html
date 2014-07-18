@@ -9,28 +9,28 @@
     <div class="row row-center padding-top">
       <div class="col col"></div>
       <div class ="card col col-80">
-        <h1 style="text-align: center">汉字</h1>
+        <h1 style="text-align: center">{{data.game.deck[0].tradHanzi}}</h1>
         <ul class="list card">
 
         <!-- rewrite with ng-repeat -->
         <li class="item item-icon-left" ui-sref="results">
           <i class="icon ion-chevron-right"></i>
-          Translation 1
+                    {{data.game.deck[0].english}}
         </li>
 
         <li class="item item-icon-left" ui-sref="results">
           <i class="icon ion-chevron-right"></i>
-         Translation 2
+                   {{data.game.deck[1].english}}
         </li>
 
         <li class="item item-icon-left" ui-sref="results">
           <i class="icon ion-chevron-right"></i>
-          Translation 3
+                    {{data.game.deck[2].english}}
         </li>
 
         <li class="item item-icon-left" ui-sref="results">
           <i class="icon ion-chevron-right"></i>
-          Translation 4
+          {{data.game.deck[3].english}}
         </li>
 
         </ul>

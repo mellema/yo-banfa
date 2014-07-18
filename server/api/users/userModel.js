@@ -38,10 +38,10 @@ UserSchema.methods.authorize = function (candidatePassword) {
 };
 
 /*var testUser = mongoose.model('User', UserSchema);
-var johnDoe = new testUser ({
-  username: 'johnDoe',
+var coolDoe = new testUser ({
+  facebookId: 'coolDoe',
   friends: ['happy', 'sleepy', 'dopey']
 });
-johnDoe.save(function(err){if(err)console.log('err on johnDoe test')})*/
+coolDoe.save(function(err){if(err)console.log('err on coolDoe test')})*/
 
 module.exports = mongoose.model('User', UserSchema);
