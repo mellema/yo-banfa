@@ -63,13 +63,13 @@ angular.module('starter.services', [])
   }
 })
 
-.factory('Game', function(){
+.factory('Game', function($http){
   //make a new game
-  var makeGame = function(creator, data){
+  var makeGame = function(data){
     return $http({
       method: 'POST',
       data: data,
-      url: '/api/game/' + creator + '/creategame'
+      url: '/api/games/creategame'
     })
   };
 
@@ -77,7 +77,7 @@ angular.module('starter.services', [])
   var getGame = function(game){
     return $http({
       method: 'GET',
-      url: '/api/game/' + game + '/getgame'
+      url: '/api/games/' + game + '/getgame'
     })
   };
 
@@ -87,7 +87,7 @@ angular.module('starter.services', [])
     return $http({
       method: 'PUT',
       data: data,
-      url: '/api/game/' + game + '/completegame'
+      url: '/api/games/' + game + '/updatescore'
     })
   };
 
