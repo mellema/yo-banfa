@@ -1,5 +1,5 @@
 
-/*var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 var fs = require('fs');
 // Create a connection instance at db localhost and table mydb
 mongoose.createConnection('localhost', 'mydb');
