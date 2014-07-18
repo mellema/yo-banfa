@@ -35,7 +35,7 @@ mongo.Db.connect(mongoUri, function (err, db) {
 
 
 // connect to Mongo when the app initializes
-mongoose.connect("mongodb://localhost/api");
+mongoose.connect(mongoUri);
 
 //configure the server will all middleware and routing
 require("./config/middleware.js")(app, express);
