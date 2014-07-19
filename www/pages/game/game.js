@@ -19,7 +19,7 @@ angular.module('starter.game', [])
 	}
 	//Insert answer at random index
 	var randomIndex = Math.floor(Math.random() * 3) + 1
-	tempCards.splice(randomIndex, 0, {answer: 'answer'})
+	tempCards.splice(randomIndex, 0, {english: 'answer'})
 	$scope.gameStatus.cards = tempCards;
 
 	console.log(tempCards)
