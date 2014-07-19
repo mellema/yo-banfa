@@ -27,7 +27,7 @@ angular.module('starter.game', [])
   }
 
 
-  //find game id from localStorage
+  //Find game id from localStorage
   $scope.getGame = Game.getGame;
   $scope.data = {};
   $scope.data.gameId = $window.localStorage.getItem('currentGame'); 
@@ -43,22 +43,19 @@ angular.module('starter.game', [])
   };*/
 
   $scope.next = function(card){
-  	console.log(card.answer)
-    //move to next card
+    //Move to next card
   	$scope.gameStatus.counter++
 
-  	//increment score
+  	//Increment score if correct
   	if (card.answer){
   	  $scope.gameStatus.numCorrect++
     }
-  	console.log($scope.gameStatus.numCorrect)
 
-  	//stop at deck length
+  	//Stop at deck length
   	if ($scope.gameStatus.counter < $scope.data.game.deck.length){
   		$scope.shuffle()
-  		//$state.go('game');
   	} else {
-  		//store result on localStorage
+  		//Store result on localStorage and go to results page
   		$window.localStorage.setItem('lastScore', $scope.gameStatus.numCorrect)
   		$state.go('results');
   	}

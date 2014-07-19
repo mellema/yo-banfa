@@ -3,37 +3,39 @@ var Game = require('./gameModel.js'),
     Card = require('../card/card.model.js')
 
 module.exports = {
-  //add Game to database.  Shuffle deck
+  //Add Game to database.  Shuffle deck.  
+  //note: duplicate found in csv.  note: some traditional chars missing
   create: function (req, res) {
     var newDeck = []
     var allCards;
+    //Get all cards
     Card.find(function (err, cards) {
       if (err){ return handleError(res, err); }
       allCards = cards;
-      //generate deck of length 10
+      //Generate deck of length 10
       while (newDeck.length < 10 && allCards.length > 0){
         var rng = Math.floor(Math.random() * allCards.length - 1) + 1;
         newDeck.push(allCards[rng])
         allCards.splice(rng, 1);
       }
-
+      //Game creation parameters
       var newGame = {
         creator: "req.creator",
         challenged: "req.challenged",
         deck: newDeck
       }
+      //Create game
       Game.create(newGame, function(err, game){
         if (err){ console.log(err); }
-        //deck should be returned to user after creation
+        //Deck should be returned to user after creation
         return res.json(201, game);
       });
     });
 
   },
 
-  //get game from database
+  //Load a game after a user accepts a challenge
   load: function (req, res) {
-    //load a game after a user accepts a challenge
     Game.findOne({_id: req.params.game}, function (err, game) {
       if (err){ console.log(err); }
       if (!game){ return res.send(404); }
@@ -41,10 +43,10 @@ module.exports = {
     });
   },
 
-  //update when the user completes the game
+  //Update when the user completes the game
   update: function (req, res){
-    //update user's score
-    //callback should get scores for both players
+    //Update user's score
+    //Callback should get scores for both players
     var conditions = {_id: req.params.game};
     var scoreToUpdate = req.creator === true ? creatorScore : challengedScore;
     var update = {};
@@ -65,7 +67,7 @@ module.exports = {
     });
   },
 
-  //return scores.  May be superfluous.
+  //Return scores.  May be superfluous.
   getScores: function (req, res){
     //if both scores are >= 0
     //  call destroy function in callback
@@ -77,7 +79,8 @@ module.exports = {
     });*/
   },
 
-  //destroy when both users complete the game (should do a request at end of game for both scores)
+  //Destroy when both users complete the game (should do a request at end of game for both scores)
+  //not necessary if games are marked complete instead.
   destroy: function(req, res){
     //remove specific game document from database
   }
