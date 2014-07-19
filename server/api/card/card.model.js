@@ -1,21 +1,14 @@
 
 var mongoose = require('mongoose');
-<<<<<<< HEAD
 var fs = require('fs');
-// Create a connection instance at db localhost and table mydb
-mongoose.createConnection('localhost', 'mydb');
-=======
-// var fs = require('fs');
-
-
 
 // Load the csv file into lineList and split by line
-var lineList = fs.readFileSync('server/api/card/hskLevel1.csv').toString().split('\n');
-// Remove the headers
-lineList.shift();
+// var lineList = fs.readFileSync('server/api/card/hskLevel1.csv').toString().split('\n');
+// // Remove the headers
+// lineList.shift();
 
-// Create the list of schemae keys for docRecurse **ORDER MATTERS**
-var schemaKeyList = ['card_ID','groupName','simpleHanzi','tradHanzi','pinyin','english'];
+// // Create the list of schemae keys for docRecurse **ORDER MATTERS**
+// var schemaKeyList = ['card_ID','groupName','simpleHanzi','tradHanzi','pinyin','english'];
 
 
 var CardSchema = new mongoose.Schema({
@@ -32,43 +25,42 @@ var CardSchema = new mongoose.Schema({
 module.exports = mongoose.model('Card', CardSchema);
 
 // For use in populating db
-var CardDoc = mongoose.model('Card', CardSchema);
+// var CardDoc = mongoose.model('Card', CardSchema);
 
-// Aggregate a list of all items from the file
-function queryAllEntries () {
-    CardDoc.aggregate(
-        {$group: {_id: '$card_ID',
-            groupName: '$groupName',
-            simpleHanzi: '$simpleHanzi',
-            tradHanzi: '$tradHanzi',
-            pinyin: '$pinyin',
-            english: '$english'
-        }}, function(err, qDocList) {
-        console.log(qDocList);
-        // process.exit(0);
-    });
-}
+// // Aggregate a list of all items from the file
+// function queryAllEntries () {
+//     CardDoc.aggregate(
+//         {$group: {_id: '$card_ID',
+//             groupName: '$groupName',
+//             simpleHanzi: '$simpleHanzi',
+//             tradHanzi: '$tradHanzi',
+//             pinyin: '$pinyin',
+//             english: '$english'
+//         }}, function(err, qDocList) {
+//         console.log(qDocList);
+//         // process.exit(0);
+//     });
+// }
 
-// Recursively go through list adding documents.
+// // Recursively go through list adding documents.
 
-function createDocRecurse (err) {
-    if (err) {
-        console.log(err);
-        process.exit(1);
-    }
-    if (lineList.length) {
-        var line = lineList.shift();
-        var doc = new CardDoc();
-        line.split(',').forEach(function (entry, i) {
-            doc[schemaKeyList[i]] = entry;
-        });
-        doc.save(createDocRecurse);
-    } else {
-        // After the last entry query to show the result.
-        queryAllEntries();
-    }
-}
+// function createDocRecurse (err) {
+//     if (err) {
+//         console.log(err);
+//         process.exit(1);
+//     }
+//     if (lineList.length) {
+//         var line = lineList.shift();
+//         var doc = new CardDoc();
+//         line.split(',').forEach(function (entry, i) {
+//             doc[schemaKeyList[i]] = entry;
+//         });
+//         doc.save(createDocRecurse);
+//     } else {
+//         // After the last entry query to show the result.
+//         queryAllEntries();
+//     }
+// }
 
-createDocRecurse(null);
 // createDocRecurse(null);
 
