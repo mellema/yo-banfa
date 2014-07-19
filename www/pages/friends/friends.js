@@ -1,7 +1,7 @@
 angular.module('starter.friends', [])
 
 //The controller for the friends page.
-.controller('FriendsCtrl', function($scope, $state, $window, Friends, Game) {
+.controller('FriendsCtrl', function($scope, $state, $window, Friends, Game, LS) {
   $scope.getFriends = Friends.getFriends;
   $scope.makeGame = Game.makeGame
   $scope.data = {};
@@ -15,12 +15,18 @@ angular.module('starter.friends', [])
   $scope.toGame = function() {
     //Make game
     $scope.makeGame({creator: 'me', challenged: 'you'}).then(function(resp){
-      console.log(resp.data)
+      console.log(resp.data);
       //Save game id
       $window.localStorage.setItem('currentGame', resp.data._id);
-    	//Link to game page
-      $state.go('hanziOptions');
-    })
+    	// Get hanziOptions from local storage
+      var hanziOptions = LS.getData();
+      // if they exist, route to deck, else to hanzi
+      if (hanziOptions) {
+        $state.go('deckOptions');
+      } else {
+        $state.go('hanziOptions');
+      }
+    });
   };
   // $scope.auth = function() {
 
