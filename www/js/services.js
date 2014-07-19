@@ -13,7 +13,7 @@ angular.module('starter.services', [])
   //   { text: '2 Page Two', iconClass: 'icon ion-gear-b', link: 'two'},
   //   { text: '3 Page Three', iconClass: 'icon ion-star', link: 'three'}
   // ];
-  var menuItems = [{text: 'Friends'}, {text: 'Enemies'}, {text: 'Losers'}];
+  var menuItems = [{text: 'Friends'}, {text: 'Options'}];
 
 
   return {
@@ -91,7 +91,7 @@ angular.module('starter.services', [])
     })
   };
 
-  //functions injected when Game is injected
+  //functions injected when Game a parameter
   return {
     makeGame: makeGame,
     getGame: getGame,
