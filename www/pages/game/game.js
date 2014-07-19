@@ -1,9 +1,9 @@
 angular.module('starter.game', [])
 .controller('GameCtrl', function($scope, $scope, $state, $window, Game) {
   //reset game
-  $scope.gameStatus = $scope.gameStatus || {};
-  $scope.gameStatus.counter = $scope.gameStatus.counter || 0;
-  $scope.gameStatus.numCorrect =  0;
+  $scope.gameStatus = {};
+  $scope.gameStatus.counter = 0;
+  $scope.gameStatus.numCorrect = 0;
   $scope.gameStatus.cards = [];
   //grab 3 random cards and the correct one
   $scope.shuffle = function(){
@@ -59,6 +59,7 @@ angular.module('starter.game', [])
   		//$state.go('game');
   	} else {
   		//store result on localStorage
+  		$window.localStorage.setItem('lastScore', $scope.gameStatus.numCorrect)
   		$state.go('results');
   	}
   }
