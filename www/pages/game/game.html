@@ -9,15 +9,15 @@
     <div class="row row-center padding-top">
       <div class="col col"></div>
       <div class ="card col col-80">
-        <h1 style="text-align: center">{{data.game.deck[0].tradHanzi}}</h1>
+        <h1 style="text-align: center">{{data.game.deck[gameStatus.counter].simpleHanzi}}</h1>
         <ul class="list card">
 
         <!-- rewrite with ng-repeat -->
-        <li class="item item-icon-left" ui-sref="results">
+        <li class="item item-icon-left" ng-click="next()" ng-repeat='card in gameStatus.cards'>
           <i class="icon ion-chevron-right"></i>
-                    {{data.game.deck[0].english}}
+                    {{card}}
         </li>
-
+<!-- 
         <li class="item item-icon-left" ui-sref="results">
           <i class="icon ion-chevron-right"></i>
                    {{data.game.deck[1].english}}
@@ -31,7 +31,7 @@
         <li class="item item-icon-left" ui-sref="results">
           <i class="icon ion-chevron-right"></i>
           {{data.game.deck[3].english}}
-        </li>
+        </li> -->
 
         </ul>
        </div>
