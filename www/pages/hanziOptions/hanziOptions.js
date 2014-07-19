@@ -10,7 +10,6 @@ angular.module('starter.hanziOptions', [])
 	return LS.getData();
   };
   $scope.update = function(val) {
-	console.log('value', val);
 	return LS.setData(val);
   };
 });
