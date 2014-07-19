@@ -20,9 +20,7 @@ angular.module('starter.game', [])
 	}
 	//Insert answer at random index
 	var randomIndex = Math.floor(Math.random() * 4)
-	var answer = {};
-	answer['english'] = $scope.data.game.deck[$scope.gameStatus.counter].english;
-	answer['answer'] = true;
+	var answer = $scope.data.game.deck[$scope.gameStatus.counter];
 	tempCards.splice(randomIndex, 0, answer)
 	$scope.gameStatus.cards = tempCards;
   }
@@ -43,13 +41,13 @@ angular.module('starter.game', [])
 
   //Activated on card click
   $scope.next = function(card){
-    //Move to next card
-  	$scope.gameStatus.counter++
-
   	//Increment score if correct
-  	if (card.answer){
+  	if (card === $scope.data.game.deck[$scope.gameStatus.counter]){
   	  $scope.gameStatus.numCorrect++
     }
+    
+    //Move to next card
+  	$scope.gameStatus.counter++
 
   	//Stop at deck length
   	if ($scope.gameStatus.counter < $scope.data.game.deck.length){
