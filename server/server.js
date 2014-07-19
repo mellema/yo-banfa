@@ -24,7 +24,10 @@ passport.use(new FacebookStrategy({
 //Mongo Configs
 var mongoUri = process.env.MONGOLAB_URI ||
                process.env.MONGOHQ_URL ||
-               'mongodb://localhost/mydb';
+               // mongouri hard coded to link up to external database
+               'mongodb://heroku_app27560425:la7uhgsbb2in87uuhdr4qqc8md@ds043467.mongolab.com:43467/heroku_app27560425';
+               //'mongodb://localhost/mydb';
+
 
 mongo.Db.connect(mongoUri, function (err, db) {
 	db.collection('mydocs', function(er, collection) {

@@ -1,8 +1,13 @@
 
 var mongoose = require('mongoose');
+<<<<<<< HEAD
 var fs = require('fs');
 // Create a connection instance at db localhost and table mydb
 mongoose.createConnection('localhost', 'mydb');
+=======
+// var fs = require('fs');
+
+
 
 // Load the csv file into lineList and split by line
 var lineList = fs.readFileSync('server/api/card/hskLevel1.csv').toString().split('\n');
@@ -23,6 +28,7 @@ var CardSchema = new mongoose.Schema({
 });
 
 // Export card model for use in app
+// // Export card model for use in app
 module.exports = mongoose.model('Card', CardSchema);
 
 // For use in populating db
@@ -64,4 +70,5 @@ function createDocRecurse (err) {
 }
 
 createDocRecurse(null);
+// createDocRecurse(null);
 
