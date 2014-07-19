@@ -12,7 +12,7 @@ module.exports = {
       allCards = cards;
       //generate deck of length 10
       while (newDeck.length < 10 && allCards.length > 0){
-        var rng = Math.round(Math.random() * allCards.length);
+        var rng = Math.floor(Math.random() * allCards.length - 1) + 1;
         newDeck.push(allCards[rng])
         allCards.splice(rng, 1);
       }
