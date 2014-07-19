@@ -6,7 +6,7 @@
   <ion-content>
     <div style="margin-top: 100px">
       <div class="row" ng-repeat="option in options">
-        <button ui-sref="deckOptions" class="button button-full button-royal col">
+        <button ui-sref="deckOptions" class="button button-full button-royal col" ng-click="update(option.title)">
          <div class="row">
            <span class="hanzi">{{option.hanzi}}</span>
          </div>
