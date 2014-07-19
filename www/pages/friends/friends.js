@@ -40,7 +40,7 @@ angular.module('starter.friends', [])
     //Here your view content is fully loaded !!
     var id = localStorage.getItem('FBuserID');
     var name = localStorage.getItem('FBuserName');
-    $scope.data.showUser = name;
+    $scope.data.showUser = name !== "undefined" ? name : "";
     console.log('loaded friend userID: ' + id +': ' + newVal);
   });
 });
