@@ -12,7 +12,7 @@ frontPage.html
     </div>
 
     <!-- while oauth doesnt work -->
-    <div id='signin'>
+<!--     <div id='signin'>
       <h1>signin</h1>
       <form name="signinForm" ng-submit='signin(signinForm.$valid)' novalidate>
         <input type='text' name='userInput' ng-model='user.username' ng-minlength='3' ng-maxlength='20' required>
@@ -21,14 +21,14 @@ frontPage.html
         <p ng-if='signinForm.userInput.$error=true'>User</p>
         <button ng-disabled='signinForm.$invalid'>signin</button>
       </form>
-    </div>
+    </div> -->
 
     <!-- oauth -->
     <div class="fblogin">
-      <fb:login-button scope="public_profile,email,user_friends" data-auto-logout-link="true" onlogin="checkLoginState();">
+      <fb:login-button scope="public_profile,email,user_friends" data-auto-logout-link="true" ng-controller="FrontPageCtrl" onlogin="checkLoginState(); something();">
       </fb:login-button>
       <div id="status">
       </div>
-    </div>
+
   </ion-content>
 </ion-view>

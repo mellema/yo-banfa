@@ -14,8 +14,10 @@ module.exports = {
 
   //search database for user
   signin: function (req, res, next) {
-    //if user in database,
-    // update friends list
+    User.create({facebookId: req.body.username, friends: req.body.friends}, function(err, user) {
+      if(err) { console.log(err) }
+      res.json(201, user);
+    });
   },
 
   //check whether user is authorized
