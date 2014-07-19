@@ -20,7 +20,8 @@ angular.module('starter.game', [])
 	}
 	//Insert answer at random index
 	var randomIndex = Math.floor(Math.random() * 4)
-	var answer = $scope.data.game.deck[$scope.gameStatus.counter];
+	var answer = {};
+	answer['english'] = $scope.data.game.deck[$scope.gameStatus.counter].english;
 	answer['answer'] = true;
 	tempCards.splice(randomIndex, 0, answer)
 	$scope.gameStatus.cards = tempCards;
@@ -32,16 +33,15 @@ angular.module('starter.game', [])
   $scope.data = {};
   $scope.data.gameId = $window.localStorage.getItem('currentGame'); 
 
+  //Query database
   $scope.getGame($scope.data.gameId).then(function(resp){
     console.log(resp.data);
     $scope.data.game = resp.data;
     $scope.data.game.deck = resp.data.deck;
     $scope.shuffle()
   });
-/*  $scope.enter = function() {
-    $state.go('results');
-  };*/
 
+  //Activated on card click
   $scope.next = function(card){
     //Move to next card
   	$scope.gameStatus.counter++
