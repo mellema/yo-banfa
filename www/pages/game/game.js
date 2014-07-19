@@ -14,12 +14,12 @@ angular.module('starter.game', [])
   	}
   	var tempCards = [];
   	for (var i = 0; i < 3; i++){
-  	  var rng = Math.floor(Math.random() * tempPossibilities.length - 1) + 1;
+  	  var rng = Math.floor(Math.random() * tempPossibilities.length);
   	  tempCards.push(tempPossibilities[rng]);
   	  tempPossibilities.splice(rng, 1)
 	}
 	//Insert answer at random index
-	var randomIndex = Math.floor(Math.random() * 3) + 1
+	var randomIndex = Math.floor(Math.random() * 4)
 	var answer = $scope.data.game.deck[$scope.gameStatus.counter];
 	answer['answer'] = true;
 	tempCards.splice(randomIndex, 0, answer)
