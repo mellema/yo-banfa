@@ -3,6 +3,7 @@ angular.module('starter.game', [])
   //reset game
   $scope.gameStatus = $scope.gameStatus || {};
   $scope.gameStatus.counter = $scope.gameStatus.counter || 0;
+  $scope.gameStatus.numCorrect =  0;
   $scope.gameStatus.cards = [];
   //grab 3 random cards and the correct one
   $scope.shuffle = function(){
@@ -19,10 +20,10 @@ angular.module('starter.game', [])
 	}
 	//Insert answer at random index
 	var randomIndex = Math.floor(Math.random() * 3) + 1
-	tempCards.splice(randomIndex, 0, {english: 'answer'})
+	var answer = $scope.data.game.deck[$scope.gameStatus.counter];
+	answer['answer'] = true;
+	tempCards.splice(randomIndex, 0, answer)
 	$scope.gameStatus.cards = tempCards;
-
-	console.log(tempCards)
   }
 
 
@@ -41,12 +42,23 @@ angular.module('starter.game', [])
     $state.go('results');
   };*/
 
-  $scope.next = function(){
+  $scope.next = function(card){
+  	console.log(card.answer)
+    //move to next card
   	$scope.gameStatus.counter++
+
+  	//increment score
+  	if (card.answer){
+  	  $scope.gameStatus.numCorrect++
+    }
+  	console.log($scope.gameStatus.numCorrect)
+
+  	//stop at deck length
   	if ($scope.gameStatus.counter < $scope.data.game.deck.length){
   		$scope.shuffle()
   		//$state.go('game');
   	} else {
+  		//store result on localStorage
   		$state.go('results');
   	}
   }
