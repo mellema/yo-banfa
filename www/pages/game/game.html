@@ -13,7 +13,7 @@
         <ul class="list card">
 
         <!-- rewrite with ng-repeat -->
-        <li class="item item-icon-left" ng-click="next()" ng-repeat='card in gameStatus.cards'>
+        <li class="item item-icon-left" ng-repeat='card in gameStatus.cards' ng-click="next(card)">
           <i class="icon ion-chevron-right"></i>
                     {{card.english}}
         </li>
