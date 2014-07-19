@@ -5,6 +5,8 @@ angular.module('starter.game', [])
   $scope.gameStatus.counter = 0;
   $scope.gameStatus.numCorrect = 0;
   $scope.gameStatus.cards = [];
+  $scope.gameStatus.hanziType = $window.localStorage.getItem('hanziOptions') || 'tradHanzi'
+
   //grab 3 random cards and the correct one
   $scope.shuffle = function(){
   	var tempPossibilities = [];
