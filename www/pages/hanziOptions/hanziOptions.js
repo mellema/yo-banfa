@@ -10,15 +10,7 @@ angular.module('starter.hanziOptions', [])
 	return LS.getData();
   };
   $scope.update = function(val) {
-<<<<<<< HEAD
 	console.log('value', val);
 	return LS.setData(val);
-=======
-	return LS.setData(val);
-  };
-  $scope.goDecks = function(val) {
-	LS.setData(val);
-    $state.go('../deckOptions/deckOptions.html');
->>>>>>> refactor Hanzi options
   };
 });
