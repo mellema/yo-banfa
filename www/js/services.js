@@ -22,6 +22,24 @@ angular.module('starter.services', [])
     }
   }
 })
+ // Store hanziOptions in local storage
+.factory('LS', function($window, $rootScope) {
+  angular.element($window).on('storage', function(event) {
+  if (event.key === 'hanziOptions') {
+    $rootScope.apply();
+  }
+  });
+  return {
+  setData: function(val) {
+      $window.localStorage && $window.localStorage.setItem('hanziOptions', val);
+      return this;
+  },
+  getData: function() {
+      return $window.localStorage && $window.localStorage.getItem('hanziOptions');
+  }
+  };
+})
+
 .factory('Friends', function($http) {
   // Might use a resource here that returns a JSON array
 
