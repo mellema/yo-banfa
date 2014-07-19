@@ -9,6 +9,16 @@ var UserSchema = new mongoose.Schema({
     unique: true
   },
 
+  fbAuth: {
+    type: Boolean,
+    default: false
+  },
+
+  userName: {
+    type: String,
+    require: true
+  },
+
   friends: {
     type: Array,
     default: []
