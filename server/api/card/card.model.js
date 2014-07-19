@@ -1,6 +1,6 @@
 
 var mongoose = require('mongoose');
-var fs = require('fs');
+// var fs = require('fs');
 
 // Load the csv file into lineList and split by line
 //  var lineList = fs.readFileSync('server/api/card/hskLevel1.csv').toString().split('\n');
