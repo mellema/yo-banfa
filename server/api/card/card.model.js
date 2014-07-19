@@ -3,19 +3,19 @@ var mongoose = require('mongoose');
 var fs = require('fs');
 
 // Load the csv file into lineList and split by line
-// var lineList = fs.readFileSync('server/api/card/hskLevel1.csv').toString().split('\n');
-// // Remove the headers
-// lineList.shift();
+//  var lineList = fs.readFileSync('server/api/card/hskLevel1.csv').toString().split('\n');
+// // // Remove the headers
+//  lineList.shift();
 
-// // Create the list of schemae keys for docRecurse **ORDER MATTERS**
-// var schemaKeyList = ['card_ID','groupName','simpleHanzi','tradHanzi','pinyin','english'];
+// // // Create the list of schemae keys for docRecurse **ORDER MATTERS**
+//  var schemaKeyList = ['card_ID','groupName','tradHanzi','simpleHanzi','pinyin','english'];
 
 
 var CardSchema = new mongoose.Schema({
   card_ID: Number,
   groupName: String,
-  simpleHanzi: String,
   tradHanzi: String,
+  simpleHanzi: String,
   pinyin: String,
   english: String
 });
@@ -25,7 +25,7 @@ var CardSchema = new mongoose.Schema({
 module.exports = mongoose.model('Card', CardSchema);
 
 // For use in populating db
-// var CardDoc = mongoose.model('Card', CardSchema);
+ // var CardDoc = mongoose.model('Card', CardSchema);
 
 // // Aggregate a list of all items from the file
 // function queryAllEntries () {
