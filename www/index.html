@@ -106,8 +106,11 @@
     FB.api('/me', function(response) {
       localStorage.setItem('FBuserID', response.id);
       localStorage.setItem('FBuserName', response.name);
-      console.log(localStorage.getItem('userID')); 
-      document.location.href = 'http://localhost:9000/#/friends';
+      localStorage.setItem('FBauth', true);
+ 
+      if(document.location.href === 'http://localhost:9000/#/'){
+        document.location.href = 'http://localhost:9000/#/friends';
+      }
     });
   }
     </script>
@@ -124,7 +127,7 @@
 
           <!-- Left Side Menu -->
           <ion-side-menu side="right">
-              <ion-header-bar class="bar bar-header bar-assertive">
+              <ion-header-bar class="bar bar-header bar-stable">
                   <h1 class="title">Menu</h1>
               </ion-header-bar>
               <ion-content has-header="true">
@@ -139,5 +142,13 @@
 
       </ion-side-menus>
   </div>
+    <ion-footer-bar align-title="center" class="bar-stable">
+<!--   <div class="buttons">
+    <button class="button">Left Button</button>
+  </div> -->
+  <h1 class="title">Yo!Banfa</h1>
+<fb:login-button scope="public_profile,email,user_friends" align="right" data-auto-logout-link="true" ng-controller="FrontPageCtrl" onlogin="checkLoginState();" class="fblogin">
+      </fb:login-button>
+</ion-footer-bar>
   </body>
 </html>
