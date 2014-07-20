@@ -43,19 +43,4 @@ angular.module('starter.friends', [])
       }
     });
   };
-  // $scope.auth = function() {
-
-  //   var id = localStorage.getItem('userID');
-  //   var name = localStorage.getItem('userName');
-  //   console.log(' auth friend userID: ' + id);
-  // };
-  
-
-  $scope.$watch(localStorage['FBuserID'], function(newVal, oldVal){
-    //Here your view content is fully loaded !!
-    var id = localStorage.getItem('FBuserID');
-    var name = localStorage.getItem('FBuserName');
-    //$scope.data.showUser = name !== "undefined" ? name : "";
-    console.log('loaded friend userID: ' + id +': ' + newVal);
-  });
 });
