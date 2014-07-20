@@ -1,16 +1,27 @@
 angular.module('starter.friends', [])
 
 //The controller for the friends page.
-.controller('FriendsCtrl', function($scope, $state, $window, Friends, Game, LS) {
+.controller('FriendsCtrl', function($scope, $state, $window, Friends, Game, LS, Auth) {
   $scope.getFriends = Friends.getFriends;
   $scope.makeGame = Game.makeGame
   $scope.data = {};
-  //uncomment this and use instead of johnDoe
-  //$scope.data.user =  $window.localStorage.getItem('yobanfaUsername'); 
-  $scope.getFriends('johnDoe').then(function(resp){
-    console.log(resp.data);
-    $scope.data.friends = resp.data;
-  });
+
+  //Create user.  The user creation code (first half) should probably be refactored to elsewhere.
+  var facebookId = localStorage.getItem('FBuserID');
+  $scope.data.user = localStorage.getItem('FBuserName') || "";
+  if (facebookId === "undefined" || $scope.data.user === "undefined"){
+    console.log("undefined user")
+  } else{
+    Auth.signin({facebookId: facebookId, username: $scope.data.user})
+    .then(function(resp){
+      //Get friends
+      $scope.getFriends(facebookId).then(function(resp){
+        console.log(resp.data);
+        $scope.data.friends = resp.data;
+      });
+    })
+  }
+
 
   $scope.toGame = function() {
     //Make game
@@ -40,7 +51,7 @@ angular.module('starter.friends', [])
     //Here your view content is fully loaded !!
     var id = localStorage.getItem('FBuserID');
     var name = localStorage.getItem('FBuserName');
-    $scope.data.showUser = name !== "undefined" ? name : "";
+    //$scope.data.showUser = name !== "undefined" ? name : "";
     console.log('loaded friend userID: ' + id +': ' + newVal);
   });
 });
