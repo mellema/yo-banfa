@@ -33,9 +33,10 @@ module.exports = {
           if (err){ console.log(err);} 
           User.findOne(conditions, function (err, user) {
             if(err) { console.log(err); }
-            console.log(numupdated)
-            console.log(user);
-          });
+            //console.log(numupdated)
+          }).populate('currentGames').exec(function(err, user){
+            //console.log(user)
+          })
         });
         //Deck should be returned to user after creation
         return res.json(201, game);
