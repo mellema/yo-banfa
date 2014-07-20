@@ -24,8 +24,12 @@ angular.module('starter.friends', [])
 
 
   $scope.toGame = function() {
+    //Disable make game button
+
     //Make game
-    $scope.makeGame({creator: 'me', challenged: 'you'}).then(function(resp){
+    var creator = localStorage.getItem('FBuserID') || "default";
+    var conditions = {creator: creator, challenged: 'you'}
+    $scope.makeGame(conditions).then(function(resp){
       console.log(resp.data);
       //Save game id
       $window.localStorage.setItem('currentGame', resp.data._id);
