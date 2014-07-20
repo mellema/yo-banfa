@@ -6,6 +6,10 @@
   font-size: 25px;
   font-weight: bold;
 }
+.friendsButton{
+  font-size: 15px;
+  font-weight: bold;
+}
 .dropdown{
   text-align: right;
   z-index: +1;
@@ -24,7 +28,8 @@
   margin-right: auto;
   width: 200px;*/
   position: relative;
-  top: 10px;
+  top: 5px;
+  float: right;
 }
 .center {
   margin-left: auto;

@@ -9,27 +9,27 @@
     <div class="row row-center padding-top">
       <div class="col col"></div>
       <div class ="card col col-80">
-        <h1 style="text-align: center">Waiting for result/ win/loss</h1>
+        <h2 style="text-align: center">Waiting for result/ win/loss</h2>
         <ul class="list">
 
           <li class="item item-divider">
-            Number Correct
+            Correct Answers:
           </li>
 
           <li class="item" href="#">
             {{resultStatus.numCorrect}}
           </li>
           <li class="item item-divider">
-            Total Items
+            Out of:
           </li>
 
           <li class="item" href="#">
-            Butterfinger
-          </li>
-          <li class="item item-divider" ui-sref="friends">
-            Back to friends View
+            10
           </li>
         </ul>
+        <button ui-sref="friends" class="button button-full button-calm col">
+          <span class='friendsButton'>Back to friends View</span>
+      </button>
        </div>
       <div class ="col col"></div>
     </div>
