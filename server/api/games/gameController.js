@@ -29,13 +29,13 @@ module.exports = {
         if (err){ console.log(err); }
         var conditions = { facebookId: req.body.facebookId };
         var update = { $push: { currentGames: game._id } };
+        //Add game to user's list of currentGames
         User.update(conditions, update, function(err, numupdated){
           if (err){ console.log(err);} 
           User.findOne(conditions, function (err, user) {
             if(err) { console.log(err); }
-            //console.log(numupdated)
           }).populate('currentGames').exec(function(err, user){
-            //console.log(user)
+            if(err) { console.log(err); }
           })
         });
         //Deck should be returned to user after creation
