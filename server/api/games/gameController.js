@@ -20,13 +20,23 @@ module.exports = {
       }
       //Game creation parameters - remove quotes when ready
       var newGame = {
-        creator: "req.body.creator",
+        creator: req.body.creator,
         challenged: "req.body.challenged",
         deck: newDeck
       }
       //Create game
       Game.create(newGame, function(err, game){
         if (err){ console.log(err); }
+        var conditions = { facebookId: req.body.facebookId };
+        var update = { $push: { currentGames: game._id } };
+        User.update(conditions, update, function(err, numupdated){
+          if (err){ console.log(err);} 
+          User.findOne(conditions, function (err, user) {
+            if(err) { console.log(err); }
+            console.log(numupdated)
+            console.log(user);
+          });
+        });
         //Deck should be returned to user after creation
         return res.json(201, game);
       });

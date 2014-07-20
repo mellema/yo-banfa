@@ -3,7 +3,7 @@ var User = require('./userModel'),
     jwt  = require('jwt-simple');
 
 module.exports = {
-  //add user to database
+  //Add user to database
 /*  signup: function (req, res, next) {
     User.create({facebookId: req.body.username, friends: req.body.friends}, function(err, user) {
       if(err) { console.log(err) }
@@ -12,7 +12,7 @@ module.exports = {
   },*/
 
 
-  //search database for user.  signup currently rolled into here.
+  //Search database for user.  signup currently rolled into here.
   signin: function (req, res, next) {
     User.findOne({facebookId: req.body.facebookId}, function(err, user){
       if(err) { console.log(err) }
@@ -29,11 +29,22 @@ module.exports = {
 
   },
 
-  //check whether user is authorized
-  checkAuth: function (req, res, next) {
+  //Add a game to the user's list of games
+  addGame: function (req, res){
+    //Update user's score
+    //Callback should get scores for both players
+    var conditions = { facebookId: req.body.facebookId };
+    var update = { $push: { games: req.params.game } };
+    User.update(conditions, update, function(err, numupdated){
+      if (err){ console.log(err);} 
+      User.findOne(conditions, function (err, user) {
+        if(err) { console.log(err); }
+        res.json(user)
+      });
+    });
   },
 
-  //get list of all user's friends
+  //Get list of all user's friends
   getFriends: function(req, res) {
     User.findOne({facebookId: req.params.username}, function (err, user) {
       if(err) { console.log(err); }
@@ -45,5 +56,10 @@ module.exports = {
   getChallenges: function(req, res) {
     //after signin, 
     //  check challenges
+  },
+
+  //Check whether user is authorized
+  checkAuth: function (req, res, next) {
   }
+
 };

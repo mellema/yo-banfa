@@ -9,5 +9,6 @@ module.exports = function (app) {
   app.get('/:username/friendslist', userController.getFriends);
   //app.get('/:username/challenges', userController.getChallenges);
   app.get('/:username/facebookId', userController.getFriends);
+  app.put('/:game/addgame', userController.addGame)
 
 };
