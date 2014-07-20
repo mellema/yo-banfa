@@ -35,6 +35,8 @@ var UserSchema = new mongoose.Schema({
   },
 
   //currentGames should connect to Game schema
+  //can add a complete key in case a user were to close the game midgame, 
+  //if a creator logs in with an incomplete game they could be given a score of 0
   currentGames: [{ type: Schema.Types.ObjectId, ref: 'Game', creator: Boolean}]
 
   //future customization
