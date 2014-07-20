@@ -18,10 +18,10 @@ module.exports = {
         newDeck.push(allCards[rng])
         allCards.splice(rng, 1);
       }
-      //Game creation parameters
+      //Game creation parameters - remove quotes when ready
       var newGame = {
-        creator: "req.creator",
-        challenged: "req.challenged",
+        creator: "req.body.creator",
+        challenged: "req.body.challenged",
         deck: newDeck
       }
       //Create game
@@ -48,9 +48,9 @@ module.exports = {
     //Update user's score
     //Callback should get scores for both players
     var conditions = {_id: req.params.game};
-    var scoreToUpdate = req.creator === true ? creatorScore : challengedScore;
+    var scoreToUpdate = req.body.creator === true ? 'creatorScore' : 'challengedScore';
     var update = {};
-    update[scoreToUpdate] = req.score
+    update[scoreToUpdate] = req.body.lastScore
     Game.update(conditions, update, function(err, numupdated){
       if (err){ console.log(err);} 
       Game.findOne(conditions, function (err, game) {

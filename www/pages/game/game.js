@@ -55,8 +55,17 @@ angular.module('starter.game', [])
   	if ($scope.gameStatus.counter < $scope.data.game.deck.length){
   		$scope.shuffle()
   	} else {
-  		//Store result on localStorage and go to results page
-  		$window.localStorage.setItem('lastScore', $scope.gameStatus.numCorrect)
+  		//Store result on localStorage and update database
+      //Creator will default to true because the oauth and user data structures are 
+      //not yet complete
+  		$window.localStorage.setItem('lastScore', $scope.gameStatus.numCorrect);
+      Game.update($scope.data.gameId, {lastScore: $scope.gameStatus.numCorrect, creator: true})
+      .then(function(resp){
+        console.log("Update response:")
+        console.log(resp)
+      })
+
+      //Go to results page
   		$state.go('results');
   	}
   }
