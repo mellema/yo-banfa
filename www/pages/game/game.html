@@ -8,22 +8,18 @@
   <div class="row row-top"></div>
     <div class="row row-center padding-top">
       <div class="col col"></div>
-      <div class ="card col col-80">
+      <div class ="card col col-90">
         <h1 style="text-align: center">{{data.game.deck[gameStatus.counter][gameStatus.hanziType]}}</h1>
         <ul class="list card">
-
-        <!-- rewrite with ng-repeat -->
-        <li class="item item-icon-left" ng-repeat='card in gameStatus.cards' ng-click="next(card)">
-          <i class="icon ion-chevron-right"></i>
-                    {{card.english}}
-        </li>
-
-
-        <li class="item item-icon-left">
-          <i class="icon ion-chevron-right"></i>
-          {{gameStatus.numCorrect}}
-        </li>
-
+          <!-- rewrite with ng-repeat -->
+          <li class="item item-icon-left" style="font-size: small"ng-repeat='card in gameStatus.cards' ng-click="next(card)">
+            <i class="icon ion-chevron-right calm"></i>
+                      {{card.english}}
+          </li>
+          <li class="item item-icon-left">
+            <i class="icon"></i>
+              <b>Correct Answers: {{gameStatus.numCorrect}}</b>
+          </li>
         </ul>
        </div>
       <div class ="col col">
