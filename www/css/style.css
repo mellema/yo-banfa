@@ -3,6 +3,11 @@
   font-size: 65px;
   text-align: center;
 }
+.spinner{
+  font-size: 30px;
+  position: relative;
+  text-align: left;
+}
 .english{
   line-height: 1.5em;
 }

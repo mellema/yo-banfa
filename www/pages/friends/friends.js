@@ -24,6 +24,7 @@ angular.module('starter.friends', [])
 
   $scope.toGame = function() {
     //Disable make game button
+    $scope.chosen = true;
 
     //Make game
     var creator = localStorage.getItem('FBuserID') || "default";
