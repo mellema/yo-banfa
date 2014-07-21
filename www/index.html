@@ -107,11 +107,18 @@
       localStorage.setItem('FBuserID', response.id);
       localStorage.setItem('FBuserName', response.name);
       localStorage.setItem('FBauth', true);
- 
       if(document.location.href === 'http://localhost:9000/#/'){
         document.location.href = 'http://localhost:9000/#/friends';
       }
     });
+    FB.api(
+    "/me/picture",
+    function (response) {
+      if (response && !response.error) {
+        localStorage.setItem('FBuserPic', response.data.url);
+      }
+    }
+);
   }
     </script>
      <div ng-controller="MenuController">

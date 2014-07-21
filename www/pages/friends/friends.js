@@ -8,15 +8,15 @@ angular.module('starter.friends', [])
 
   //Create user.  The user creation code (first half) should probably be refactored to elsewhere.
   var facebookId = localStorage.getItem('FBuserID');
+  var facebookPic = localStorage.getItem('FBuserPic');
   $scope.data.user = localStorage.getItem('FBuserName') || "";
   if (facebookId === "undefined" || $scope.data.user === "undefined"){
     console.log("undefined user")
   } else{
-    Auth.signin({facebookId: facebookId, username: $scope.data.user})
+    Auth.signin({facebookId: facebookId, username: $scope.data.user, image: facebookPic})
     .then(function(resp){
       //Get friends
       $scope.getFriends(facebookId).then(function(resp){
-        console.log(resp.data);
         $scope.data.friends = resp.data;
       });
     })
