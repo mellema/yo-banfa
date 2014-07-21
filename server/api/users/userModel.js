@@ -19,9 +19,13 @@ var UserSchema = new mongoose.Schema({
     require: true
   },
 
+  // image: {
+  //   data: Buffer,
+  //   contentType: String
+  // },
   image: {
-    data: Buffer,
-    contentType: String
+    type: String,
+    default: "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/t1.0-1/c3.0.50.50/p50x50/10251924_1378106325807203_5818546993005537900_n.jpg"
   },
 
   friends: {
