@@ -1,5 +1,5 @@
-<ion-view title="Friends Page">
-  <ion-nav-buttons side="right" class="transparent-nav" style="background: none; border-bottom: none">
+<ion-view title="Yo! Friends">
+  <ion-nav-buttons side="right">
     <button menu-toggle="right" class="button button-icon icon ion-navicon">
     </button>
   </ion-nav-buttons>
@@ -7,9 +7,9 @@
 <!-- 	<div class="row">
 		<h1 class="col col-100" style="text-align: center">Yo Friends </h1>
   </div> -->
-  <div class="row">
+ <!--  <div class="row">
     <h3 class="col col-100" style="text-align: left">{{data.user}}'s friends:</h3>
-  </div>
+  </div> -->
 
 <!--  This list will eventually include all friends from Facebook.
       The list will have friends with the app listed first.
@@ -18,7 +18,7 @@
 -->
   <ion-list>
 
-    <ion-item ng-repeat='friend in data.friends'>
+    <ion-item ng-repeat='friend in data.friends' style="background: transparent">
 
       <div class="row">
         <div class="col col-10">
@@ -39,7 +39,7 @@
   <!-- for testing -->
     <ion-list>
 
-    <ion-item ng-repeat='friend in data.friends'>
+    <ion-item ng-repeat='friend in data.friends' style="background: transparent">
       <!-- <p clas>Back off, man. I'm {{friend}}.</p> -->
       <div class="row friendsRow">
         <div class="col col-10">

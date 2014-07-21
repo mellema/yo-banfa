@@ -3,6 +3,12 @@
   font-size: 65px;
   text-align: center;
 }
+.english{
+  line-height: 1.5em;
+}
+.opaque{
+ opacity: 0.8; 
+}
 .buttonFont{
   font-size: 25px;
   font-weight: bold;
