@@ -3,7 +3,7 @@ angular.module('starter.friends', [])
 //The controller for the friends page.
 .controller('FriendsCtrl', function($scope, $state, $window, Friends, Game, LS, Auth) {
   $scope.getFriends = Friends.getFriends;
-  $scope.makeGame = Game.makeGame
+  $scope.makeGame = Game.makeGame;
   $scope.data = {};
   //Create user.  The user creation code (first half) should probably be refactored to elsewhere.
   var facebookId = localStorage.getItem('FBuserID');
