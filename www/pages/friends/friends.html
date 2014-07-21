@@ -1,14 +1,14 @@
-<ion-view title="friends">
+<ion-view title="Friends Page">
   <ion-nav-buttons side="right">
     <button menu-toggle="right" class="button button-icon icon ion-navicon" >
     </button>
   </ion-nav-buttons>
   <ion-content>
-	<div class="row">
+<!-- 	<div class="row">
 		<h1 class="col col-100" style="text-align: center">Yo Friends </h1>
-  </div>
+  </div> -->
   <div class="row">
-    <p class="col col-100" style="text-align: center">{{data.user}}</p>
+    <h3 class="col col-100" style="text-align: left">{{data.user}}'s friends:</h3>
   </div>
 
 <!--  This list will eventually include all friends from Facebook.
@@ -19,20 +19,45 @@
   <ion-list>
 
     <ion-item ng-repeat='friend in data.friends'>
-      <img src="ghj">
-      <h2>{{friend}}</h2>
-      <p clas>Back off, man. I'm {{friend}}.</p>
+      <!-- <p clas>Back off, man. I'm {{friend}}.</p> -->
       <div class="row">
-      	<div class="col col-80"></div>
-     	<div class="col col-20"><button class="button button-block button-dark" ng-click="toGame()">Start game</button></div>
+        <div class="col col-10">
+          <img src="ghj">
+        </div>      	
+        <div class="col col-60">
+          <h2>{{friend}}</h2>
+        </div>
+     	  <div class="col col-30 startButtons">
+          <button class="button button-block button-calm" ng-click="toGame()">
+            Start game
+          </button>
+        </div>
       </div>
     </ion-item>
   </ion-list>
 
   <!-- for testing -->
-  <ion-list>
+    <ion-list>
 
-    <ion-item>
+    <ion-item ng-repeat='friend in data.friends'>
+      <!-- <p clas>Back off, man. I'm {{friend}}.</p> -->
+      <div class="row friendsRow">
+        <div class="col col-10">
+          <img src="ghj">
+        </div>        
+        <div class="col col-60">
+          <h2>Pierre Curie</h2>
+        </div>
+        <div class="col col-30 startButtons">
+          <button class="button button-block button-calm" ng-click="toGame()">
+            Start game
+          </button>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+
+<!--     <ion-item>
       <img src="ghj">
       <h2>testFriend</h2>
       <p clas>Back off, man. I'm testy.</p>
@@ -41,7 +66,7 @@
       <div class="col col-20"><button class="button button-block button-dark" ng-click="toGame()">Start game</button></div>
       </div>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
 
 <!-- Get friends from database
 
