@@ -29,6 +29,21 @@ module.exports = {
 
   },
 
+  //Add a game to the user's list of games
+  addGame: function (req, res){
+    //Update user's score
+    //Callback should get scores for both players
+    var conditions = { facebookId: req.body.facebookId };
+    var update = { $push: { games: req.params.game } };
+    User.update(conditions, update, function(err, numupdated){
+      if (err){ console.log(err);} 
+      User.findOne(conditions, function (err, user) {
+        if(err) { console.log(err); }
+        res.json(user)
+      });
+    });
+  },
+
   //Get list of all user's friends
   getFriends: function(req, res) {
     User.findOne({facebookId: req.params.username}, function (err, user) {
