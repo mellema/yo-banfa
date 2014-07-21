@@ -117,8 +117,11 @@ angular.module('starter.services', [])
   }
 })
 
-.factory('DeckOptions', function() {
+.factory('DeckOptions', function($http) {
   // Might use a resource here that returns a JSON array
+  // $http.get('/api/cards').success(function(cards) {
+  //     $scope.cards = cards;
+  //   });
 
   // Some fake testing data
   var decks = [
