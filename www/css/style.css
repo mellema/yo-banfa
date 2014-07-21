@@ -19,7 +19,7 @@
   margin-right: auto;
   width: 200px;
   height: 50px;
-  background-color: lightblue;
+  background-color: #43cee6;
   position: relative;
   top: 100px;
 }
@@ -31,9 +31,6 @@
   top: 5px;
   float: right;
 }
-.friendsRow {
-  line-height: 20px;
-}
 .startButtons {
 /*  margin-left: auto;
   margin-right: auto;
@@ -41,6 +38,9 @@
   position: relative;
   top: -20px;
   float: right;
+}
+.goLeft{
+  text-align: left;
 }
 .center {
   margin-left: auto;
