@@ -15,7 +15,6 @@
     <!-- ionic/angularjs js -->
     <script src="/lib/ionic/js/ionic.bundle.js"></script>
 
-
     <!-- your app's js -->
     <script src="/dist/all.js"></script>
 
@@ -37,7 +36,7 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       callFBapi();
-
+    //if not connected, navigate to login page and clear local storage.
     } else if (response.status === 'not_authorized' && document.location.href !== 'http://localhost:9000/#/') {
       window.localStorage.setItem('FBuserID', undefined);
       window.localStorage.setItem('FBuserName', undefined);      
@@ -59,7 +58,7 @@
       statusChangeCallback(response);
     });
   }
-
+  //More off the shelf code from facebook. Should probably hide the appId for security reasons.
   window.fbAsyncInit = function() {
     FB.init({
       appId      : 648798351882921,
@@ -85,13 +84,8 @@
       statusChangeCallback(response);
     });
   };
-//   document.onreadystatechange = function () {
-//   if (document.readyState === "complete") {
-//     checkLoginState();
-//   }
-// }
 
-  // Load the SDK asynchronously
+  // Load the SDK asynchronously. This is off the shelf code provided by facebook. Alter at your own peril. Probably not a good idea to mess with it.
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
@@ -100,17 +94,17 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-  // Here we run a very simple test of the Graph API after login is
-  // successful.  See statusChangeCallback() for when this call is made.
+  // This call to the facebook api returns the user's name and facebook id and stores them in local storage. They are later pushed from there to the db.
   function callFBapi() {
     FB.api('/me', function(response) {
       localStorage.setItem('FBuserID', response.id);
       localStorage.setItem('FBuserName', response.name);
-      localStorage.setItem('FBauth', true);
+      //localStorage.setItem('FBauth', true);
       if(document.location.href === 'http://localhost:9000/#/'){
         document.location.href = 'http://localhost:9000/#/friends';
       }
     });
+    // This call to the facebook api returns a link to the user's profile photo, which is stored in local storage. To be done: push the picture link to the db for use in the friend's list.
     FB.api(
     "/me/picture",
     function (response) {
@@ -154,6 +148,13 @@
     <button class="button"></button>
   </div> -->
   <h1 class="title">Yo!Banfa</h1>
+  <!-- Footer bar contains a facebook login button taken directly from the facebook Javascript SDK. scope allows
+  you to request specific info from the api. Some info requires
+  facebook approval before you get access. data-auto-logout-link
+  attribute changes the button to logout after the user logs in and vice versa. calling checkLoginState kicks off a call to
+  the facebook API which grabs user info and stores it in local
+  storage.
+   -->
 <fb:login-button scope="public_profile,email,user_friends" align="right" data-auto-logout-link="true" ng-controller="FrontPageCtrl" onlogin="checkLoginState();" class="fblogin">
       </fb:login-button>
 </ion-footer-bar>

@@ -14,19 +14,4 @@ angular.module('starter.frontPage', [])
     //   });
     console.log('signin!!!');
   };
-  
-  $scope.something = function(){
-    console.log('something!!!');
-  };
-
-  $scope.$watch(localStorage['FBuserName'], function(newVal, oldVal){
-    //Here your view content is fully loaded !!
-    var id = localStorage.getItem('FBuserID');
-    var name = localStorage.getItem('FBuserName');
-    console.log('frontpage friend userID: ' + name +': ' + newVal);
-  });
-
-/*  $scope.enter = function() {
-    $state.go('friends');
-  };*/
 });

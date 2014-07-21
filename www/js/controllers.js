@@ -6,8 +6,4 @@ angular.module('starter.controllers', ['starter.frontPage', 'starter.friends', '
   //Get the user's name from local storage to show on sidebar
   $scope.user = localStorage.getItem('FBuserName') || "";
 
-  // $scope.goTo = function(page) {
-  //   console.log('Going to ' + page);
-  //   $location.url('/' + page);
-  // };
 });
