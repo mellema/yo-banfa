@@ -5,7 +5,6 @@ angular.module('starter.friends', [])
   $scope.getFriends = Friends.getFriends;
   $scope.makeGame = Game.makeGame
   $scope.data = {};
-
   //Create user.  The user creation code (first half) should probably be refactored to elsewhere.
   var facebookId = localStorage.getItem('FBuserID');
   var facebookPic = localStorage.getItem('FBuserPic');

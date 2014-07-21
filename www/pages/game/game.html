@@ -1,4 +1,3 @@
-
 <ion-view title="game">
   <ion-nav-buttons side="right">
     <button menu-toggle="right" class="button button-icon icon ion-navicon" >
@@ -8,11 +7,11 @@
   <div class="row row-top"></div>
     <div class="row row-center padding-top">
       <div class="col col"></div>
-      <div class ="card col col-90">
-        <h1 style="text-align: center">{{data.game.deck[gameStatus.counter][gameStatus.hanziType]}}</h1>
+      <div class ="card col col-90" style="background: transparent">
+        <h1 class="hanzi">{{data.game.deck[gameStatus.counter][gameStatus.hanziType]}}</h1>
         <ul class="list card">
           <!-- rewrite with ng-repeat -->
-          <li class="item item-icon-left" style="font-size: small"ng-repeat='card in gameStatus.cards' ng-click="next(card)">
+          <li class="item item-icon-left item-text-wrap english" style="font-size: small"ng-repeat='card in gameStatus.cards' ng-click="next(card)">
             <i class="icon ion-chevron-right calm"></i>
                       {{card.english}}
           </li>
